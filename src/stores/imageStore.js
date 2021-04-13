@@ -41,6 +41,7 @@ export class ImageStore {
     }
 
     saveImage() {
+        console.log('save');
         if (
             this.imagePath &&
             validateFilterType(this.filterType) &&

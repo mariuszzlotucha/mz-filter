@@ -3,5 +3,5 @@ import { useRootStore } from '../../contexts';
 
 export const Preview = () => {
     const { imageStore } = useRootStore();
-    return <div>previe</div>;
+    return <div>preview</div>;
 };
