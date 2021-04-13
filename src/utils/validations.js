@@ -1,4 +1,5 @@
 import { isNumber, inRange } from 'lodash-es';
+import validatePath from 'is-valid-path';
 import {
     MIN_FILTER_STRENGTH_VALUE,
     MAX_FILTER_STRENGTH_VALUE,
@@ -6,7 +7,7 @@ import {
     imageFileTypes,
 } from '../constants';
 
-export const validateFilterType = (filterType) => {
+const validateFilterType = (filterType) => {
     if (imageFilterTypes.has(filterType)) {
         return true;
     } else {
@@ -14,7 +15,7 @@ export const validateFilterType = (filterType) => {
     }
 };
 
-export const validateFilterStrength = (strength) => {
+const validateFilterStrength = (strength) => {
     if (
         isNumber(strength) &&
         inRange(strength, MAX_FILTER_STRENGTH_VALUE, MIN_FILTER_STRENGTH_VALUE)
@@ -25,10 +26,17 @@ export const validateFilterStrength = (strength) => {
     }
 };
 
-export const validateFileType = (fileType) => {
+const validateFileType = (fileType) => {
     if (imageFileTypes.has(fileType)) {
         return true;
     } else {
         throw new Error('Wrong file type');
     }
+};
+
+export {
+    validatePath,
+    validateFilterType,
+    validateFilterStrength,
+    validateFileType,
 };

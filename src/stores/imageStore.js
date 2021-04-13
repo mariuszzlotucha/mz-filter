@@ -5,6 +5,7 @@ import {
     validateFilterStrength,
     validateFileType,
     validateFilterType,
+    validatePath,
 } from '../utils';
 
 export class ImageStore {
@@ -19,7 +20,9 @@ export class ImageStore {
     }
 
     setImagePath(path) {
-        this.imagePath = path;
+        if (validatePath) {
+            this.imagePath = path;
+        }
     }
 
     setFilterType(filterType) {
@@ -43,7 +46,7 @@ export class ImageStore {
     saveImage() {
         console.log('save');
         if (
-            this.imagePath &&
+            validatePath(this.imagePath) &&
             validateFilterType(this.filterType) &&
             validateFilterStrength(this.strength) &&
             validateFileType(this.fileType)
