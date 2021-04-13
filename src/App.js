@@ -1,6 +1,6 @@
-import { observer } from 'mobx';
+import { observer } from 'mobx-react-lite';
 
-function App() {
+export const App = observer(function () {
     return (
         <div className="App">
             <header className="App-header">
@@ -10,6 +10,4 @@ function App() {
             </header>
         </div>
     );
-}
-
-export default observer(() => App);
+});

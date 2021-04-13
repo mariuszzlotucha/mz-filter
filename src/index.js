@@ -1,9 +1,9 @@
-import { createContext, useContext, StrictMode } from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import { App } from './App';
 import { configure } from 'mobx';
-import { RootStore } from './stores';
+import { RootStoreProvider } from './contexts';
 
 configure({
     enforceActions: 'always',
@@ -13,13 +13,11 @@ configure({
     disableErrorBoundaries: true,
 });
 
-const RootStoreContext = createContext;
-
 ReactDOM.render(
     <StrictMode>
-        <RootStoreContext.Provider value={new RootStore()}>
+        <RootStoreProvider>
             <App />
-        </RootStoreContext.Provider>
+        </RootStoreProvider>
     </StrictMode>,
     document.getElementById('root')
 );
