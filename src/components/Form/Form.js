@@ -1,5 +1,6 @@
 import React from 'react';
 import { useRootStore } from '../../contexts';
+import './style.sass';
 
 export const Form = () => {
     const { imageStore } = useRootStore();
@@ -18,7 +19,7 @@ export const Form = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form">
             <input />
 
             <input />

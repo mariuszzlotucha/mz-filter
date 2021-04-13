@@ -15,7 +15,7 @@ export class ImageStore {
     imageFileType;
 
     constructor(rootStore) {
-        makeAutoObservable(this, { rootStore: false });
+        makeAutoObservable(this, null, { autoBind: true });
         this.rootStore = rootStore;
     }
 
@@ -44,7 +44,7 @@ export class ImageStore {
     }
 
     saveImage() {
-        console.log('save');
+        console.log(this);
         if (
             validatePath(this.imagePath) &&
             validateFilterType(this.filterType) &&
