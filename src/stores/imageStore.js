@@ -1,4 +1,4 @@
-import { makeObservable, computed, observable, action } from 'mobx';
+import { makeObservable, observable, action } from 'mobx';
 
 import {
     MIN_FILTER_STRENGTH_VALUE,

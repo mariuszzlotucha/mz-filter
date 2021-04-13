@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { useRootStore } from '../../contexts';
 import './style.sass';

@@ -5,21 +5,11 @@ import { observer } from 'mobx-react-lite';
 
 export const Preview = observer(() => {
     const { imageStore } = useRootStore();
-    const {
-        setImagePath,
-        setFilterType,
-        setFilterStrength,
-        setImageFileType,
-        saveImage,
-        imagePath,
-        filterType,
-        filterStrength,
-        imageFileType,
-    } = imageStore;
+    const { imagePath } = imageStore;
     return (
         <div>
             preview
-            {imagePath && <img src={imagePath} />}
+            {imagePath && <img src={imagePath} alt={imagePath} />}
         </div>
     );
 });
