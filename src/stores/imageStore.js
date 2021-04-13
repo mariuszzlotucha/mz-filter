@@ -1,6 +1,10 @@
-import { makeAutoObservable } from 'mobx';
+import { makeObservable, computed, observable, action } from 'mobx';
 
-import { MIN_FILTER_STRENGTH_VALUE } from '../constants';
+import {
+    MIN_FILTER_STRENGTH_VALUE,
+    imageFilterTypes,
+    imageFileTypes,
+} from '../constants';
 import {
     validateFilterStrength,
     validateFileType,
@@ -9,18 +13,37 @@ import {
 } from '../utils';
 
 export class ImageStore {
-    imagePath;
-    filterType;
+    imagePath = '';
+    filterType = imageFilterTypes[0];
     filterStrength = MIN_FILTER_STRENGTH_VALUE;
-    imageFileType;
+    imageFileType = imageFileTypes[0];
 
     constructor(rootStore) {
-        makeAutoObservable(this, null, { autoBind: true });
+        makeObservable(
+            this,
+            {
+                setImagePath: action.bound,
+                setFilterType: action.bound,
+                setFilterStrength: action.bound,
+                setImageFileType: action.bound,
+                saveImage: action.bound,
+                imagePath: observable,
+                filterType: observable,
+                filterStrength: observable,
+                imageFileType: observable,
+            },
+            { autoBind: true, rootStore: true }
+        );
         this.rootStore = rootStore;
+        window.rootStore = rootStore;
     }
 
     setImagePath(path) {
-        if (validatePath) {
+        if (!path) return;
+
+        path = path.replace('C:\\fakepath\\', '');
+        console.log(path);
+        if (validatePath(path)) {
             this.imagePath = path;
         }
     }

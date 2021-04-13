@@ -8,10 +8,10 @@ import {
 } from '../constants';
 
 const validateFilterType = (filterType) => {
-    if (imageFilterTypes.has(filterType)) {
+    if (imageFilterTypes.includes(filterType)) {
         return true;
     } else {
-        throw new Error('Wrong filter type');
+        // throw new Error('Wrong filter type');
     }
 };
 
@@ -22,15 +22,15 @@ const validateFilterStrength = (strength) => {
     ) {
         return true;
     } else {
-        throw new Error('Wrong filterStrength value');
+        // throw new Error('Wrong filterStrength value');
     }
 };
 
 const validateFileType = (fileType) => {
-    if (imageFileTypes.has(fileType)) {
+    if (imageFileTypes.includes(fileType)) {
         return true;
     } else {
-        throw new Error('Wrong file type');
+        // throw new Error('Wrong file type');
     }
 };
 
