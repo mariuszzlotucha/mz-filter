@@ -35,14 +35,9 @@ export class ImageStore {
             { autoBind: true, rootStore: true }
         );
         this.rootStore = rootStore;
-        window.rootStore = rootStore;
     }
 
     setImagePath(path) {
-        if (!path) return;
-
-        path = path.replace('C:\\fakepath\\', '');
-        console.log(path);
         if (validatePath(path)) {
             this.imagePath = path;
         }
@@ -67,7 +62,6 @@ export class ImageStore {
     }
 
     saveImage() {
-        console.log(this);
         if (
             validatePath(this.imagePath) &&
             validateFilterType(this.filterType) &&
