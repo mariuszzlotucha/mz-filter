@@ -14,7 +14,7 @@ export function RootStoreProvider({ children }) {
 }
 
 export function useRootStore() {
-    const context = useContext(RootStoreProvider);
+    const context = useContext(RootStoreContext);
     if (context === undefined) {
         throw new Error('useRootStore must be used within RootStoreProvider');
     }
